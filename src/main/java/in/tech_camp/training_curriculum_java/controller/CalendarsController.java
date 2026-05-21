@@ -65,10 +65,15 @@ public class CalendarsController {
               todayPlans.add(plan.getPlan());
           }
       }
+      int wdayNum = todaysDate.getDayOfWeek().getValue();
+      if(wdayNum >= 7){
+        wdayNum = wdayNum -7;
+      }
 
       dayMap.put("month", currentDate.getMonthValue());
       dayMap.put("date", currentDate.getDayOfMonth());
       dayMap.put("plans", todayPlans);
+      dayMap.put("wday", wdays[wdayNum]);
 
       weekDays.add(dayMap);
     }
